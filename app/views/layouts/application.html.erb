@@ -1,14 +1,75 @@
 <!DOCTYPE html>
-<html>
 <head>
-  <title>Ccrissman</title>
-  <%= stylesheet_link_tag    "application" %>
+  <meta charset="utf-8">
+
+  <title>Chad Crissman, Web Developer</title>
+  <meta name="description" content="Portfolio of Chad Crissman, web developer">
+  <meta name="author" content="Chad Crissman">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0">
+
+  <!-- For all browsers -->
+  <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
+
+  <script type="text/javascript" src="http://use.typekit.com/aqb7zqp.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+  <!-- For iPhone 4 -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://ccrissman.s3.amazonaws.com/images/h/apple-touch-icon.png">
+  <!-- For iPad 1-->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://ccrissman.s3.amazonaws.com/images/m/apple-touch-icon.png">
+  <!-- For iPhone 3G, iPod Touch and Android -->
+  <link rel="apple-touch-icon-precomposed" href="http://ccrissman.s3.amazonaws.com/images/l/apple-touch-icon-precomposed.png">
+  <!-- For Nokia -->
+  <link rel="shortcut icon" href="http://ccrissman.s3.amazonaws.com/images/l/apple-touch-icon.png">
+  <!-- For everything else -->
+  <link rel="shortcut icon" href="favicon.ico">
+
   <%= csrf_meta_tags %>
 </head>
-<body>
 
-<%= yield %>
+<body class="clearfix">
+
+  <%= yield %>
+
+<footer role="contentinfo" id="footer" class="page">
+  <div class="content">
+
+    <nav class="footer-nav">
+      <ul class="nav-list">
+        <li><a href="#home">Top</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#resume">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <p class="colophon">This site was handcrafted for use on multiple devices. It uses <a href="http://www.alistapart.com/articles/responsive-web-design">css media queries</a> to adapt to various screen sizes and is based on the <a href="http://stuffandnonsense.co.uk/projects/320andup">320 and Up</a> framework. Fonts used are Museo Slab and Museo Sans from <a href="http://www.typekit.com">Typekit</a></p>
+
+    <address class="vcard hidden">
+      <span class="fn n">
+        <span class="given-name">Chad</span>
+        <span class="family-name">Crissman</span>
+      </span>
+      <span class="title">Web developer</span>
+      <span class="url">ccrissman.com</span>
+      <span class="adr">
+        <span class="locality">Los Angeles</span>
+        <span class="region">CA</span>
+      </span>
+      <span class="tel">
+        <a href="tel://8054587182" class="value">(805) 458-7182</a>
+      </span>
+      <span class="email">cdcrissman@gmail.com</span>
+    </address>
+
+  </div>
+</footer>  <!-- end footer -->
+
+<!-- <script>
+<script>var _gaq=[['_setAccount','UA-19247754-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script> -->
 
 </body>
 </html>

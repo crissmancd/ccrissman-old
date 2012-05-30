@@ -4,6 +4,13 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
-//= require jquery
-//= require jquery_ujs
-//= require_tree .
+//= require libs/jquery-1.6.2.min
+//= require libs/selectivizr-min
+//= require libs/modernizr-2.0.6.min
+//= require libs/jquery.scrollTo-1.4.2-min
+//= require libs/jquery.localscroll-1.2.7-min
+//= require mylibs/helper
+//= require plugins
+//= require script
+//= require libs/imgsizer
+//= require libs/respond.min
