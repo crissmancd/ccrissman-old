@@ -7,7 +7,7 @@ $(document).ready(function(){
 
   $.localScroll({hash:'true'});
 
-  $('form').submit(submitForm);
+  // $('form').submit(submitForm);
 
   // iOS scale bug fix
   MBP.scaleFix();
@@ -18,7 +18,7 @@ $(document).ready(function(){
   // Respond.js
   yepnope({
   	test : Modernizr.mq('(only all)'),
-  	nope : ['js/libs/respond.min.js']
+  	nope : ["<%= asset_path('libs/respond.min.js') %>"]
   });
 
 });
@@ -32,7 +32,7 @@ function submitForm() {
   var contactForm = $(this);
 
   // Are all the fields filled in?
-  if ( !$('#name').val() || !$('#email').val() || !$('#message').val() ) {
+  if ( !$('#message_name').val() || !$('#message_email').val() || !$('#message_content').val() ) {
 
     // No; display a warning message and return to the form
     // contactForm.hide().delay(messageDelay).fadeIn();
