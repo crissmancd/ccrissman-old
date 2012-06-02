@@ -4,9 +4,10 @@ class Message
   include ActiveModel::Conversion
   extend ActiveModel::Naming
 
-  attr_accessor :name, :email, :content
+  attr_accessor :name, :email, :content, :captcha
 
   validates :name, :email, :content, :presence => true
+  validates :captcha, :presence => false
   validates :email, :format => { :with => %r{.+@.+\..+} }, :allow_blank => true
 
   def initialize(attributes = {})

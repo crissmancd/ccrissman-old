@@ -7,8 +7,6 @@ $(document).ready(function(){
 
   $.localScroll({hash:'true'});
 
-  // $('form').submit(submitForm);
-
   // iOS scale bug fix
   MBP.scaleFix();
 
@@ -21,68 +19,51 @@ $(document).ready(function(){
   	nope : ["<%= asset_path('libs/respond.min.js') %>"]
   });
 
+  function isValidEmailAddress(emailAddress) {
+    var pattern = new RegExp(/^^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/i);
+    return pattern.test(emailAddress);
+};
+
+
+  // Ajax contact form
+  var messageDelay = 2000;
+  var $formContainer = $('.contact-form')
+  var $form = $('form');
+  var incompleteMessage = '<div id="incompleteMessage" class="statusMessage inlineMessage"><p>Please complete all the fields in the form before sending.</p></div>';
+  var failureMessage = '<div id="failureMessage" class="statusMessage inlineMessage"><p>There was a problem sending your message.</p><p>Please try again.</p></div>';
+  var sendingMessage = "<div id='sendingMessage' class='statusMessage'><p>Sending your message&hellip;</p></div>";
+  var successMessage = "<div id='successMessage' class='statusMessage'><p>Thanks for sending your message!</p><p>I&rsquo;ll get back to you shortly.</p></div>";
+
+
+  var formSubmit = function () {
+    if ( !$('#message_name').val() || !$('#message_email').val() || !$('#message_content').val() || !isValidEmailAddress($('#message_content').val()) ) {
+      $formContainer.prepend(incompleteMessage).find('#incompleteMessage').fadeIn();
+      return false;
+    } else {
+      $('.statusMessage').remove();
+      $form.hide();
+      $formContainer.append(sendingMessage).find('#sendingMessage').fadeIn();
+    }
+  };
+
+  var formFailure = function () {
+    $('.statusMessage').remove();
+    $formContainer.prepend(failureMessage).find('#failureMessage').fadeIn();
+    $form.fadeIn();
+  };
+
+  var formSuccess = function () {
+    $('.statusMessage').remove();
+    $('#message_name').val( "" );
+    $('#message_email').val( "" );
+    $('#message_message').val( "" );
+    $formContainer.append(successMessage).find('#successMessage').fadeIn().delay(messageDelay).fadeOut();
+    $form.delay(messageDelay+500).fadeIn();
+  };
+
+  $form.bind('ajax:before', formSubmit
+  ).bind('ajax:failure', formFailure
+  ).bind('ajax:success', formSuccess
+  );
+
 });
-
-
-// How long to display status messages (in milliseconds)
-var messageDelay = 2000;
-
-// Submit the form via Ajax
-function submitForm() {
-  var contactForm = $(this);
-
-  // Are all the fields filled in?
-  if ( !$('#message_name').val() || !$('#message_email').val() || !$('#message_content').val() ) {
-
-    // No; display a warning message and return to the form
-    // contactForm.hide().delay(messageDelay).fadeIn();
-    //     $('#incompleteMessage').fadeIn().delay(messageDelay).fadeOut('fast');
-
-    contactForm.hide().delay(messageDelay).fadeIn();
-    $('#incompleteMessage').fadeIn().delay(messageDelay).fadeOut('fast');
-
-  } else {
-
-    // Yes; submit the form to the PHP script via Ajax
-    contactForm.hide();
-    $('#sendingMessage').fadeIn();
-
-    $.ajax( {
-      url: contactForm.attr( 'action' ) + "?ajax=true",
-      type: contactForm.attr( 'method' ),
-      data: contactForm.serialize(),
-      success: submitFinished
-    } );
-  }
-
-  // Prevent the default form submission occurring
-  return false;
-}
-
-
-// Handle the Ajax response
-function submitFinished( response ) {
-  response = $.trim( response );
-  $('#sendingMessage').fadeOut();
-
-  if ( response == "success" ) {
-
-    // Form submitted successfully:
-    // 1. Display the success message
-    // 2. Clear the form fields
-    // 3. Fade the content back in
-
-    $('#successMessage').fadeIn().delay(messageDelay).fadeOut();
-    $('#name').val( "" );
-    $('#email').val( "" );
-    $('#message').val( "" );
-    $('form').delay(messageDelay+500).fadeIn();
-
-  } else {
-
-    // Form submission failed: Display the failure message,
-    // then redisplay the form
-    $('#failureMessage').fadeIn().delay(messageDelay).fadeOut();
-    $('form').delay(messageDelay+500).fadeIn();
-  }
-}

@@ -8,6 +8,9 @@
     <section class="contact-form">
       <%= form_for @message, :url => root_path, :remote => true do |f| %>
         <fieldset>
+          <%= f.label :captcha, "If Human, Leave Blank", :class => 'captcha' %>
+          <%= f.text_field :captcha, :class => 'captcha' %>
+
           <%= f.label :name, "First and Last Name" %>
           <%= f.text_field :name %>
 
@@ -22,10 +25,6 @@
         </fieldset>
       <% end %>
 
-      <div id="sendingMessage" class="statusMessage"><p>Sending your message&hellip;</p></div>
-      <div id="successMessage" class="statusMessage"><p>Thanks for sending your message!</p><p>I&rsquo;ll get back to you shortly.</p></div>
-      <div id="failureMessage" class="statusMessage"><p>There was a problem sending your message.</p><p>Please try again.</p></div>
-      <div id="incompleteMessage" class="statusMessage"><p>Please complete all the fields in the form before sending.</p></div>
     </section> <!-- end contact form -->
 
     <section class="follow">

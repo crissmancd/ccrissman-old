@@ -309,6 +309,7 @@ input[type=submit] {
 .statusMessage {
   display: none;
   text-align: center;
+  margin-top: 10em;
   p {
     margin-top: 1em;
     margin-bottom: 1em;
@@ -316,6 +317,18 @@ input[type=submit] {
     font-size: 2.4rem;
     line-height: 1;
   }
+}
+
+.inlineMessage {
+  margin-top: 0;
+  text-align: left;
+  p {
+    color: #cc0000;
+  }
+}
+
+.captcha {
+  display: none;
 }
 
 .contact-info a {
@@ -530,7 +543,7 @@ nav[role=navigation] {
   }
   .contact-form {
     width: 60%;
-    min-height: 24em;
+    min-height: 34em;
   }
   label, input, textarea {
     font-size: 18px;
