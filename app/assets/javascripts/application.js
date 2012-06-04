@@ -6,12 +6,9 @@
 //
 //= require libs/jquery-1.6.2.min
 //= require jquery_ujs
-//= require libs/selectivizr-min
 //= require libs/modernizr-2.0.6.min
 //= require libs/jquery.scrollTo-1.4.2-min
 //= require libs/jquery.localscroll-1.2.7-min
 //= require mylibs/helper
-//= require plugins
 //= require script
-//= require libs/imgsizer
 //= require libs/respond.min

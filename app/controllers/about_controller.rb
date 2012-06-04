@@ -17,7 +17,10 @@ class AboutController < ApplicationController
         format.js { render :nothing => true }
       end
     end
+  end
 
+  def sample
+    render :layout => 'sample'
   end
 
 end

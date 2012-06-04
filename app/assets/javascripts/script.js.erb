@@ -13,16 +13,11 @@ $(document).ready(function(){
   // hide iOS URL bar
   MBP.hideUrlBar();
 
-  // Respond.js
-  yepnope({
-  	test : Modernizr.mq('(only all)'),
-  	nope : ["<%= asset_path('libs/respond.min.js') %>"]
-  });
 
   function isValidEmailAddress(emailAddress) {
     var pattern = new RegExp(/^^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/i);
     return pattern.test(emailAddress);
-};
+  };
 
 
   // Ajax contact form

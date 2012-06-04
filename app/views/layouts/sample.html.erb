@@ -10,12 +10,8 @@
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0">
 
   <!-- For all browsers -->
-  <%= stylesheet_link_tag "application" %>
+  <%= stylesheet_link_tag "sample" %>
   <%= javascript_include_tag "application" %>
-
-  <!--[if (lt IE 9) & (!IEMobile)]>
-    <%= javascript_include_tag "libs/selectivizr-min" %>
-  <![endif]-->
 
   <script type="text/javascript" src="http://use.typekit.com/aqb7zqp.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
@@ -34,47 +30,28 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body class="clearfix">
+<body id="sample-page" class="clearfix">
 
-  <%= yield %>
-
-<footer role="contentinfo" id="footer" class="page">
+<div id="sample-home" class="page clearfix">
   <div class="content">
-
-    <nav class="footer-nav">
+    <nav role="navigation" class="clearfix">
       <ul class="nav-list">
-        <li><a href="#home">Top</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#resume">Experience</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="../#work">Work</a></li>
+        <li><a href="../#resume">Experience</a></li>
+        <li><a href="../#contact">Contact</a></li>
       </ul>
     </nav>
 
-    <p class="colophon">This site was handcrafted for use on multiple devices. It uses <a href="http://www.alistapart.com/articles/responsive-web-design">css media queries</a> to adapt to various screen sizes and is based on the <a href="http://stuffandnonsense.co.uk/projects/320andup">320 and Up</a> framework. Fonts used are Museo Slab and Museo Sans from <a href="http://www.typekit.com">Typekit</a></p>
-
-    <address class="vcard hidden">
-      <span class="fn n">
-        <span class="given-name">Chad</span>
-        <span class="family-name">Crissman</span>
-      </span>
-      <span class="title">Web developer</span>
-      <span class="url">ccrissman.com</span>
-      <span class="adr">
-        <span class="locality">Los Angeles</span>
-        <span class="region">CA</span>
-      </span>
-      <span class="tel">
-        <a href="tel://8054587182" class="value">(805) 458-7182</a>
-      </span>
-      <span class="email">cdcrissman@gmail.com</span>
-    </address>
-
+    <header role="banner" class="clearfix">
+      <h1 class="logo"><a href="../">Chad Crissman</a></h1>
+    </header>
   </div>
-</footer>  <!-- end footer -->
+</div> <!-- end home -->
 
-<!--[if (lt IE 9) & (!IEMobile)]>
-  <%= javascript_include_tag "libs/imgsizr" %>
-<![endif]-->
+
+<div id="sample" class="page">
+  <%= yield %>
+</div>
 
 <!-- <script>
 <script>var _gaq=[['_setAccount','UA-19247754-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script> -->
