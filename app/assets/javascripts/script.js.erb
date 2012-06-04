@@ -25,14 +25,18 @@ $(document).ready(function(){
   var $formContainer = $('.contact-form')
   var $form = $('form');
   var incompleteMessage = '<div id="incompleteMessage" class="statusMessage inlineMessage"><p>Please complete all the fields in the form before sending.</p></div>';
+  var invalidEmail = '<div id="invalidEmail" class="statusMessage inlineMessage"><p>Please enter a valid email address.</p></div>';
   var failureMessage = '<div id="failureMessage" class="statusMessage inlineMessage"><p>There was a problem sending your message.</p><p>Please try again.</p></div>';
   var sendingMessage = "<div id='sendingMessage' class='statusMessage'><p>Sending your message&hellip;</p></div>";
   var successMessage = "<div id='successMessage' class='statusMessage'><p>Thanks for sending your message!</p><p>I&rsquo;ll get back to you shortly.</p></div>";
 
 
   var formSubmit = function () {
-    if ( !$('#message_name').val() || !$('#message_email').val() || !$('#message_content').val() || !isValidEmailAddress($('#message_content').val()) ) {
+    if ( !$('#message_name').val() || !$('#message_email').val() || !$('#message_content').val()) {
       $formContainer.prepend(incompleteMessage).find('#incompleteMessage').fadeIn();
+      return false;
+    } else if (!isValidEmailAddress($('#message_email').val())) {
+      $formContainer.prepend(invalidEmail).find('#invalidEmail').fadeIn();
       return false;
     } else {
       $('.statusMessage').remove();
