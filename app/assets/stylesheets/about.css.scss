@@ -37,12 +37,12 @@ nav {
   font-family: 'museo-slab', rockwell,'rockwell std', Serifa, 'Serifa Std', Glypha, 'Glypha Std', Memphis, 'Memphis Std', 'helvetica neue', helvetica, arial, sans-serif;
   font-weight: 500;
   &[role=navigation] {
-    position: relative;
+    position: fixed;
     height: 144px;
-    width: 102%;
+    width: 90%;
     padding: 0 5%;
-    top: -1.5em;
-    left: -6%;
+    top: 0;
+    left: 0;
     margin-top: -144px;
     background: #000;
     -moz-transition: margin .3s ease-out;
@@ -225,10 +225,10 @@ header[role="banner"] {
 
 /*- experience page -*/
 
-#resume {
+/*#resume {
   z-index: 100;
 }
-
+*/
 .experience {
   li {
     margin-bottom: 4.5em;
@@ -237,8 +237,8 @@ header[role="banner"] {
     margin-bottom: 0;
   }
   .dates {
-    margin-top: .75em;
-    margin-bottom: 2.25em;
+    margin-top: 0;
+    margin-bottom: 0;
     font-weight: 300;
     font-style: italic;
   }
@@ -439,6 +439,7 @@ nav[role=navigation] {
     padding-top: 0;
   }
   nav[role=navigation] {
+    position: static;
     height: auto;
     float: right;
     width: 25%;

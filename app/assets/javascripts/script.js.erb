@@ -19,7 +19,6 @@ $(document).ready(function(){
     return pattern.test(emailAddress);
   };
 
-
   // Ajax contact form
   var messageDelay = 2000;
   var $formContainer = $('.contact-form')
@@ -66,3 +65,20 @@ $(document).ready(function(){
   );
 
 });
+
+// $(window).load(function() {
+//   var stickyTop = $('.nav-list').offset().top;
+//
+//   console.log('nav: ' + stickyTop);
+//
+//   $(window).scroll(function() {
+//     var windowTop = $(window).scrollTop();
+//
+//     if (stickyTop < windowTop) {
+//       $('.nav-list').css({position: 'fixed', top: 0});
+//     }
+//     else {
+//       $('.nav-list').css('position', 'static');
+//     }
+//   });
+// });
