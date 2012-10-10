@@ -12,19 +12,16 @@ class SamplesController < ApplicationController
       { slug: "yp-ypcrowd",       extension: :jpg }
     ]
 
-    @sample = samples.select{ |s| s[:slug] == params[:slug] }.first
-    sample_index = samples.index(@sample)
+    sample = samples.select{ |s| s[:slug] == params[:slug] }.first
+    sample_index = samples.index(sample)
 
-    if sample_index.zero?
-      @prev_link = nil
-      @next_link = samples[sample_index + 1][:slug]
-    elsif sample_index == (samples.length - 1)
-      @prev_link = samples[sample_index - 1][:slug]
-      @next_link = nil
-    else
-      @prev_link = samples[sample_index - 1][:slug]
-      @next_link = samples[sample_index + 1][:slug]
-    end
+    @prev_link = sample_index.zero?                   ? nil : samples[sample_index - 1][:slug]
+    @next_link = sample_index == (samples.length - 1) ? nil : samples[sample_index + 1][:slug]
+
+    @alt = "#{sample[:slug].gsub(/_|-/, " ")} screenshot"
+    @image = "http://ccrissman.s3.amazonaws.com/images/h/#{sample[:slug]}.#{sample[:extension]}"
   end
 
 end
+
+

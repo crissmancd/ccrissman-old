@@ -1,12 +1,7 @@
-<img src="http://ccrissman.s3.amazonaws.com/images/h/<%= @sample[:slug] %>.<%= @sample[:extension] %>" alt="<%= @sample[:slug].gsub(/_|-/, " ") %> sample" />
+<%= image_tag @image, alt: @alt %>
 
 <p class="pagination">
-  <% if @prev_link %>
-    <%= link_to "Previous", @prev_link %>
-  <% end %>
-
-  <% if @next_link %>
-    <%= link_to "Next",     @next_link %>
-  <% end %>
+  <%= link_to "Previous", @prev_link if @prev_link %>
+  <%= link_to "Next",     @next_link if @next_link %>
 </p>
 
