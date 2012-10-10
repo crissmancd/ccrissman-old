@@ -7,11 +7,11 @@
   <meta name="author" content="Chad Crissman">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- For all browsers -->
-  <%= stylesheet_link_tag "sample" %>
-  <%= javascript_include_tag "application" %>
+  <link rel="stylesheet" href="/css/sample.css" media="screen">
+  <script src="/assets/application.js"></script>
 
   <script type="text/javascript" src="http://use.typekit.com/aqb7zqp.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
@@ -25,9 +25,8 @@
   <!-- For Nokia -->
   <link rel="shortcut icon" href="http://ccrissman.s3.amazonaws.com/images/l/apple-touch-icon.png">
   <!-- For everything else -->
-  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="shortcut icon" href="../favicon.ico">
 
-  <%= csrf_meta_tags %>
 </head>
 
 <body id="sample-page" class="clearfix">
@@ -53,8 +52,14 @@
   <%= yield %>
 </div>
 
+<!--[if (lt IE 9) & (!IEMobile)]>
+  <script src="/assets/libs/imgsizer.js"></script>
+<![endif]-->
+
+<!-- http://mths.be/aab -->
 <!-- <script>
 <script>var _gaq=[['_setAccount','UA-19247754-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script> -->
+
 
 </body>
 </html>

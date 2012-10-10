@@ -1,0 +1,12 @@
+<img src="http://ccrissman.s3.amazonaws.com/images/h/<%= @sample.first %>.<%= @sample.last %>" alt="<%= @sample.first.gsub(/_|-/, " ") %> sample" />
+
+<p class="pagination">
+  <% if @prev_link %>
+    <%= link_to "Previous", @prev_link %>
+  <% end %>
+
+  <% if @next_link %>
+    <%= link_to "Next",     @next_link %>
+  <% end %>
+</p>
+
