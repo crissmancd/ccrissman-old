@@ -1,4 +1,4 @@
-<img src="http://ccrissman.s3.amazonaws.com/images/h/<%= @sample.first %>.<%= @sample.last %>" alt="<%= @sample.first.gsub(/_|-/, " ") %> sample" />
+<img src="http://ccrissman.s3.amazonaws.com/images/h/<%= @sample[:slug] %>.<%= @sample[:extension] %>" alt="<%= @sample[:slug].gsub(/_|-/, " ") %> sample" />
 
 <p class="pagination">
   <% if @prev_link %>
